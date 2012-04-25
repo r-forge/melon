@@ -8,7 +8,7 @@ setClass("MELON",
 		if (ncol(object@normData)!=length(object@normFactor)) {
 			stop("Dimension of normalized data and factors do not match!")
 		}
-		return (TRUE)
+		return (TRUE) 
 	}
 )
 

@@ -1,27 +1,16 @@
 setGeneric("getNormData",function(object){standardGeneric ("getNormData")})
 
-setGeneric("getNormFactor",function(object){standardGeneric ("getNormFactor")})
+setGeneric("getNormFactors",function(object){standardGeneric ("getNormFactors")})
 
-setGeneric("getTrimIntensity",function(object){standardGeneric ("getTrimIntensity")})
+setGeneric("getIdStabLoci",function(object){standardGeneric ("getIdStabLoci")})
 
-setGeneric("getTrimValue",function(object){standardGeneric ("getTrimValue")})
+setGeneric("getDataStabLoci",function(object){standardGeneric ("getDataStabLoci")})
 
 setGeneric("getRefId",function(object){standardGeneric ("getRefId")})
 
-setGeneric("getMedianResults",function(object){standardGeneric ("getMedianResults")})
+setGeneric("getStabFeatures",function(object){standardGeneric ("getStabFeatures")})
 
-setGeneric("setMedianResults<-",function(this,value){standardGeneric ("setMedianResults<-")})
-
-setGeneric("makeMELON",
-		function(object, ...)
-		#function(object, mindatapointfraction=1/2, trimvalue=0, trimoption="sum", refsample=0, verbose=F)
-			standardGeneric("makeMELON")
-	  )
-
-setGeneric("plotTrimValue", function(object, ...) {
-			standardGeneric("plotTrimValue")
+setGeneric("normScatterPlot", function(object, ...) {
+			standardGeneric("normScatterPlot")
 })
 
-setGeneric("plotMedianRatio", function(object, ...) {
-			standardGeneric("plotMedianRatio")
-})

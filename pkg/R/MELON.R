@@ -2,13 +2,14 @@
 ### Constructor (MELON) 
 #########################################
 
-setMethod(f="initialize",signature="MELON",definition=function(.Object,normData,normFactor,trimIntensity, trimValue, refId){
-	.Object@normFactor<-normFactor
+setMethod(f="initialize",signature="MELON",definition=function(.Object,normData, normFactors, idStabLoci, dataStabLoci, stabFeatures, refId){
 	.Object@normData<-normData
-	.Object@trimIntensity<-trimIntensity
-	.Object@trimValue<-trimValue		
+	.Object@normFactors<-normFactors
+  .Object@idStabLoci<-idStabLoci
+	.Object@dataStabLoci<-dataStabLoci		
+	.Object@stabFeatures<-stabFeatures  
 	.Object@refId<-refId		
-	.Object@medianResults<-list()
 	return (.Object)
 })
+
 

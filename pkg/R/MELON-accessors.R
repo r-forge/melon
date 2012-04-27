@@ -6,22 +6,24 @@ setMethod("getNormData","MELON", function(object){
 	return(object@normData)
 })
 
-setMethod("getNormFactor","MELON", function(object){ 
-	return(object@normFactor)
+setMethod("getNormFactors","MELON", function(object){ 
+	return(object@normFactors)
 })
 
-setMethod("getTrimIntensity","MELON", function(object){ 
-	return(object@trimIntensity)
+setMethod("getIdStabLoci","MELON", function(object){ 
+	return(object@idStabLoci)
 })
 
-setMethod("getTrimValue","MELON", function(object){ 
-	return(object@trimValue)
+setMethod("getDataStabLoci","MELON", function(object){ 
+	return(object@dataStabLoci)
 })
 
 setMethod("getRefId","MELON", function(object){ 
 	return(object@refId)
 })
 
-setMethod("getMedianResults","MELON", function(object){ 
-	return(object@medianResults)
+setMethod("getStabFeatures","MELON", function(object){ 
+	return(object@stabFeatures)
 })
+
+

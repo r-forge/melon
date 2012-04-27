@@ -1,0 +1,23 @@
+## Imports
+
+importFrom(grDevices, as.raster, is.raster, replayPlot)
+
+importFrom(methods, new)
+
+importFrom(stats, as.ts, coef, dendrapply, deviance, end, formula, frequency, IQR, is.leaf, knots, naprint, pf, pnorm, print.anova, printCoefmat, pt,
+           quantile, reformulate, residuals, start, symnum, terms, time, ts, tsp, write.ftable)
+
+importFrom(utils, as.person, browseURL, head, menu, str, tail, toBibtex)
+
+## Exports
+
+## Classes
+exportClasses(MELON)
+
+## exportMethods(show)
+exportMethods(show)
+
+## MELON methods
+exportMethods(getNormData, getNormFactors, getIdStabLoci, getDataStabLoci, getRefId, getStabFeatures, normScatterPlot)
+
+export(makeMELON)

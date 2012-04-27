@@ -1,21 +1,20 @@
 Package: MELON
 Type: Package
-Title: Maximally Enriched LOci Normalization (MELON) for enrichment-based quantitative second-generation sequencing applications
+Title: Methylation Enriched LOci Normalization (MELON) for genome-wide DNA methylation experiments
 Version: 1.0
-Date: 2011-10-25
+Date: 2012-04-20
 Author: Tim De Meyer <Tim.DeMeyer@Ugent.be>
 Maintainer: Peter Pipelers <Peter.Pipelers@UGent.be>
-Depends: R (>= 2.10.0)
-Description: Maximally Enriched LOci Normalization (MELON) for enrichment-based quantitative second-generation sequencing applications
+Depends: R (>= 2.13.0)
+Imports: grDevices, methods, stats
+Description: Methylation Enriched LOci Normalization (MELON) for genome-wide DNA methylation experiments
 License: LGPL version 2 or newer
 Collate: AllGenerics.R
          AllClasses.R
 	 MELON.R
-	 endmedian.R
 	 makeMELON.R
          MELON-accessors.R
-	 MELON-mutators.R
 	 methods-MELON.R
 	 show-methods.R
 LazyLoad: yes
-biocViews: Bioinformatics, Preprocessing, Normalization
+biocViews: Bioinformatics, Preprocessing, Normalization, Methylation

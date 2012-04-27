@@ -1,10 +1,10 @@
 #########################################
-### Plot Trim Value Selection (MELON) 
+### Scatter Plots (MELON) 
 #########################################
 
 setMethod("normScatterPlot","MELON",function(object, nres = 5, datatype = c("Count","Continuous"), savedir=NULL, plotabline=TRUE, tracefile=NULL) {
   samples <- getNormData(object)
-  refSamples <- getRefId(object)
+  refSample <- getRefId(object)
   stabLoci <- getIdStabLoci(object)
   if(is.null(tracefile)==F){sink(file = tracefile, append = TRUE, type = c("output", "message"),split = FALSE);writeLines(date())}
   if(is.null(savedir)==F){if(substr(savedir,nchar(savedir),nchar(savedir))!="/"){savedir<-paste(savedir,"/",sep="")}}
@@ -16,7 +16,7 @@ setMethod("normScatterPlot","MELON",function(object, nres = 5, datatype = c("Cou
   for (i in (1:ncol(samples))[-refSample]){
     
     writeLines(paste("Creating plot for sample ",colnames(samples)[i],sep=""))
-    sampleredtable<-table(apply(samples[,c(refsample,i)],1,paste,sep="@",collapse="@"))
+    sampleredtable<-table(apply(samples[,c(refSample,i)],1,paste,sep="@",collapse="@"))
     allreddata<-cbind(t(apply(apply(as.matrix(strsplit(names(sampleredtable),split="@")),1,unlist),2,as.numeric)),as.vector(sampleredtable))
     colnames(allreddata)<-c(colnames(samples[,c(refSample,i)]),"counts")
     
@@ -37,7 +37,7 @@ setMethod("normScatterPlot","MELON",function(object, nres = 5, datatype = c("Cou
       plot(normsamplered[j,2],normsamplered[j,3],xlim=c(0,max(normsamplered[,2:3])*1.1),ylim=c(0,max(normsamplered[,2:3])*1.1),cex=0.8+4*log(normsamplered[j,4])/log(max(normsamplered[,4])),pch=20,xlab="",ylab="")
       par(new=T)
     }
-    if(is.null(stabloci)==F){
+    if(is.null(stabLoci)==F){
       if(datatype=="Count"){
         for (j in 1:nrow(samples[stabLoci,])){
           plot(log(samples[stabLoci[j],refSample]+1),log(samples[stabLoci[j],i]+1),pch=20,col="blue",xlab="",ylab="",xlim=c(0,max(normsamplered[,2:3])*1.1),ylim=c(0,max(normsamplered[,2:3])*1.1),cex=0.8)

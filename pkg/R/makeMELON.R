@@ -25,10 +25,10 @@ makeMELON<- function(object, method = c("Max","Clean"), regrwindow = 201, minC =
       #Report which sample is used as reference sample, provides warning when other sample has higher resolution
       if (refsample==0){
         refid<-which(sampleresolution==max(sampleresolution))[1]
-        writeLines(paste("Sample",colnames(countdata)[refid],"has the maximum of all sample resolutions and is therefore used as reference sample \n"))
+        writeLines(paste("Sample",colnames(object)[refid],"has the maximum of all sample resolutions and is therefore used as reference sample \n"))
       } else {
         refid<-refsample
-        writeLines(paste("Sample",colnames(countdata)[refid],"(user provided) is considered as reference sample\n"))
+        writeLines(paste("Sample",colnames(object)[refid],"(user provided) is considered as reference sample\n"))
       }
       
       #Determine maximally enriched loci
@@ -59,7 +59,7 @@ makeMELON<- function(object, method = c("Max","Clean"), regrwindow = 201, minC =
         pickedup<-table(allinds[i,])
         pickeduploci<-which(nonzerocounts[,1]%in%names(pickedup))
         nonzerocounts[pickeduploci,2]<-nonzerocounts[pickeduploci,2]+pickedup[names(pickedup)%in%nonzerocounts[pickeduploci,1]]
-        stabnumloci[i]<-sum(nonzerocounts[,2]==ncol(countdata))
+        stabnumloci[i]<-sum(nonzerocounts[,2]==ncol(object))
       }
       mincutoff<-which(stabnumloci>=minC)[1]
 

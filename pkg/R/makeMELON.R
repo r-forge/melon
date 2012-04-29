@@ -1,7 +1,5 @@
-#setMethod("makeMELON",
- #   signature(object = "ANY"), function(object, method = c("Max","Clean"), regrwindow = 201, minC = 50, manC = NULL, maxL = 20000, refsample = 0, doplot = T, savedir = NULL, tracefile = NULL) {
-makeMELON<- function(object, method = c("Max","Clean"), regrwindow = 201, minC = 50, manC = NULL, maxL = 20000, refsample = 0, doplot = T, savedir = NULL, tracefile = NULL) {
-## object == countdata
+
+makeMELON<- function(object, method = c("Max","Clean"), regrwindow = 201, minC = 50, manC = NULL, maxL = 20000, refsample = NULL, doplot = F, savedir = NULL, savefile = NULL, tracefile = NULL) {
 	    stopifnot(is.data.frame(object) | is.matrix(object))
       
       if(is.null(tracefile)==F){sink(file = tracefile, append = TRUE, type = c("output", "message"),split = FALSE);writeLines(date())}  
@@ -9,9 +7,10 @@ makeMELON<- function(object, method = c("Max","Clean"), regrwindow = 201, minC =
       if((method%in%c("Max","Clean"))==F){writeLines("Warning: 'method' should be either 'Max' or 'Clean', 'method' has been set to the latter\n");method<-'Clean'}
       if(is.null(savedir)==F){if(substr(savedir,nchar(savedir),nchar(savedir))!="/"){savedir<-paste(savedir,"/",sep="")}}
       if(is.null(savedir)==F){if(is.na(file.info(savedir)$size)){dir.create(savedir)}}
+	    if(doplot==T & is.null(savefile)){savefile<-"StabilityPlot.pdf"; writeLines("Warning: Filename is set to default. \n")}
       if(method=="Max"&is.null(regrwindow)==F){writeLines("Local regression (regrwindow) is ignored for method = 'Max'")}
       if(method=="Clean"&is.null(regrwindow)==T){regrwindow<-201;writeLines("Local regression (regrwindow) should be a positive odd integer for method = 'Clean', and has been set to 201 (default)\n")}
-      if(method=="Clean"&regrwindow%%2!=1){regrwindow<-201;writeLines("Local regression (regrwindow) should be a positive odd integer ans has been set to 201 (default)\n")}
+      if(method=="Clean"&regrwindow%%2!=1){regrwindow<-201;writeLines("Local regression (regrwindow) should be a positive odd integer and has been set to 201 (default)\n")}
       
       object<-as.matrix(object)
       
@@ -23,7 +22,7 @@ makeMELON<- function(object, method = c("Max","Clean"), regrwindow = 201, minC =
       }
       
       #Report which sample is used as reference sample, provides warning when other sample has higher resolution
-      if (refsample==0){
+      if (is.null(refsample)){
         refid<-which(sampleresolution==max(sampleresolution))[1]
         writeLines(paste("Sample",colnames(object)[refid],"has the maximum of all sample resolutions and is therefore used as reference sample \n"))
       } else {
@@ -89,8 +88,8 @@ makeMELON<- function(object, method = c("Max","Clean"), regrwindow = 201, minC =
       writeLines(paste("The resulting amount of stable loci was ",length(stabloci),", this number can be altered by setting 'manC' manually\n",sep=""))
       
       #create plot
-      if(doplot==1){
-        if(is.null(savedir)==F){pdf(file=paste(savedir,"StabilityPlot.pdf",sep=""))}
+      if(doplot==T){
+        if(is.null(savedir)==F){pdf(file=paste(savedir,savefile,sep=""))}
         
         parset<-par(mar=c(5.1,4.1,2.1,4.1))
         plot(1:length(stabvector),stabvector,pch=20,axes=F,ylab="",xlab="",cex=0.8)

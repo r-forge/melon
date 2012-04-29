@@ -1,16 +1,16 @@
-\name{getNormData}
-\alias{getNormData}
+\name{getIdStabLoci}
+\alias{getIdStabLoci}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Extracts normalized data from \code{MELON} object
+Extracts the indices of the considered stable loci in the normalization process of a \code{MELON} object
 }
 
 \description{
-Method to extract normalized data from \code{MELON} object
+Method to extract the indices of the considered stable loci in the normalization process of a \code{MELON} object
 }
 
 \usage{
-getNormData(object)
+getIdStabLoci(object)
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -23,7 +23,7 @@ getNormData(object)
 }
 
 \value{
-matrix with the normalized data according to MELON
+vector with the indices of considered stable loci according to MELON
 }
 
 \references{

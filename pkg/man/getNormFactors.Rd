@@ -1,16 +1,16 @@
-\name{getNormData}
-\alias{getNormData}
+\name{getNormFactors}
+\alias{getNormFactors}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Extracts normalized data from \code{MELON} object
+Extracts normalization factors from \code{MELON} object
 }
 
 \description{
-Method to extract normalized data from \code{MELON} object
+Method to extract normalization factors from \code{MELON} object
 }
 
 \usage{
-getNormData(object)
+getNormFactors(object)
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -23,7 +23,7 @@ getNormData(object)
 }
 
 \value{
-matrix with the normalized data according to MELON
+vector with the normalization factors according to MELON
 }
 
 \references{

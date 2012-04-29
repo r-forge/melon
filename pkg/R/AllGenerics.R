@@ -10,7 +10,6 @@ setGeneric("getRefId",function(object){standardGeneric ("getRefId")})
 
 setGeneric("getStabFeatures",function(object){standardGeneric ("getStabFeatures")})
 
-setGeneric("normScatterPlot", function(object, ...) {
+setGeneric("normScatterPlot", function(object, nres = 5, datatype = c("Count","Continuous"), savedir=NULL, plotabline=T, tracefile=NULL) {
 			standardGeneric("normScatterPlot")
 })
-

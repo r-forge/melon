@@ -1,16 +1,16 @@
-\name{getNormData}
-\alias{getNormData}
+\name{getRefId}
+\alias{getRefId}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Extracts normalized data from \code{MELON} object
+Returns the used reference sample in a normalized \code{MELON} object
 }
 
 \description{
-Method to extract normalized data from \code{MELON} object
+Method to return the used reference sample index in a normalized \code{MELON} object
 }
 
 \usage{
-getNormData(object)
+getRefId(object)
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -23,7 +23,7 @@ getNormData(object)
 }
 
 \value{
-matrix with the normalized data according to MELON
+index of used reference sample. Either a user defined sample can be used as a reference sample, but the sample with the largest amount of unique intensities is by default used as reference sample.
 }
 
 \references{

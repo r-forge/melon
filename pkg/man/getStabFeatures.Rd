@@ -1,16 +1,16 @@
-\name{getNormData}
-\alias{getNormData}
+\name{getStabFeatures}
+\alias{getStabFeatures}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Extracts normalized data from \code{MELON} object
+Extracts the stability results from \code{MELON} object
 }
 
 \description{
-Method to extract normalized data from \code{MELON} object
+Method to extract the stability results from \code{MELON} object obtained by the MELON algorithm
 }
 
 \usage{
-getNormData(object)
+getStabFeatures(object)
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -23,7 +23,7 @@ getNormData(object)
 }
 
 \value{
-matrix with the normalized data according to MELON
+matrix with the sequential stability results from \code{MELON} object obtained by the MELON algorithm. These included "amount of ranks", "Stability indices" and "Number of stable loci"
 }
 
 \references{
